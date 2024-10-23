@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load i18n %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillCert {% block title %}  {% endblock title %} </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+       .header {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+       }
+
+       .header h2{
+        font-weight: bold;
+        color: #333;
+ 
+       }
+
+       .header span{
+            color: #2563EB;
+       }
+       .mail-body {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #cdcdcd;
+        border-radius: 5px;
+ 
+       }
+       .footer {
+        background-color: #333;
+        padding: 10px;
+        text-align: center;
+        }
+        .footer p {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h2>
+            {% blocktrans %}
+                Skill<span>Cert</span>
+            {% endblocktrans %}
+        </h2>
+    </header>
+
+    <div class="mail-body">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+
+    <footer>
+        {% blocktrans %}
+        <p>Copyright &copy; 2022 SkillCert. All rights reserved.</p>
+        <p>Designed by <a href="https://example.com">Example Company</a></p>
+        {% endblocktrans %}
+    </footer>
+</body>
+</html>
