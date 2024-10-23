@@ -37,7 +37,6 @@ oauthlib==3.2.2
 openai==0.28.0
 packaging==24.1
 pillow==10.4.0
-psycopg2==2.9.9
 pycparser==2.22
 pydantic==2.8.2
 pydantic_core==2.20.1
