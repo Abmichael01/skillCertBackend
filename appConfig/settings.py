@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'corsheaders',
-    'drf_yasg',
     'api',
     "cloudinary",
     "cloudinary_storage",
