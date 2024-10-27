@@ -1,6 +1,9 @@
 from pathlib import Path
 from datetime import timedelta
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,10 +11,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-w8%#nd)*sk4k^h7)fzyr14$$+82=drdegc3#d^dte#iw8dlh5%"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ["*"]
 
@@ -72,9 +75,17 @@ WSGI_APPLICATION = 'appConfig.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv("POSTGRES_DATABASE"),
+        'USER': os.getenv("POSTGRES_USER"),
+        'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
+        'HOST': os.getenv("POSTGRES_HOST"),
+        'PORT': '5432',
     }
 }
 
@@ -131,14 +142,14 @@ CORS_ALLOW_CREDENTIALS = True
 #     "http://localhost:3000"
 # ]
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-MAILER_EMAIL_BACKEND = "EMAIL_BACKEND"
+EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
+MAILER_EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_PASSWORD = "pdnkydqebuecqzua"
-EMAIL_HOST_USER = "abmichael109@gmail.com"
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = "abmichael109@gmail.com"
+DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST_USER")
 
 # Restframeowrk setting
 REST_FRAMEWORK = {
