@@ -9,3 +9,4 @@ django-cloudinary-storage==0.3.0
 python-dotenv
 psycopg2-binary
 django-templated-mail==1.1.1
+whitenoise
