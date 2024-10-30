@@ -20,7 +20,6 @@ def generate_test_data(num_tests_per_category, num_questions_per_test):
                 title=test_title,
                 difficulty=random.choice(["S", "M", "H"]),
                 duration=random.randint(5, 60),
-                banner_img=fake.image_url(width=800, height=400)
             )
             test.save()  # Ensure the slug and other fields are processed
             generate_questions(test, num_questions_per_test)

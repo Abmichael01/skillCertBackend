@@ -308,6 +308,7 @@ def attempted_tests(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(["GET"])
+@permission_classes([AllowAny])
 def tests_by_category(request, pk):
     # page = request.GET["page"]
     category = Category.objects.get(id=pk)
@@ -317,6 +318,7 @@ def tests_by_category(request, pk):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(["GET"])
+@permission_classes([AllowAny])
 def user_profile(request, pk):
     user = User.objects.get(id=pk)
     serializer = UserSerializer(user, many=False)
