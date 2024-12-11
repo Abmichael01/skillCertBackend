@@ -190,7 +190,7 @@ DJOSER = {
     }
 }
 
-FRONTEND_URL = "localhost:3000"
+FRONTEND_URL = "skill-cert.vercel.app"
 
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": "dp92rfbci",
